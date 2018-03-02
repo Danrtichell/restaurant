@@ -1,11 +1,11 @@
-# Artisan's Story
-![Preview](./src/assets/icon.png)
+# Restaurant Finder
+![Preview](./src/assets/logo.png)
 
-#### Artisan's story is a social app with a universal timeline. Any registered user can share their thougts via this. Now there is no interaction between single feed'.  In future there will be some like like, comment. 
+#### Restaurant finder is an app which lets you find your nearby restaurants , get to know more detail about them and direction to go there. You can also bookmark and search them. 
 
-Download the APK : [Installable APK](https://github.com/ishraqe/react-native-blog/raw/master/apk/app-release.apk)
+Download the APK : [Installable APK](https://github.com/ishraqe/restaurant/raw/master/apk/app-release.apk)
 
-![Preview](./src/assets/inCollage_20180212_202916674.jpg)
+
 
 ## Built With
  - [React Native](https://facebook.github.io/react-native/)
@@ -20,7 +20,8 @@ I would really appricate any suggestions, feedback, PRs and Issues.
 
 ## Walkthrough
 
-![Preview](./src/assets/ezgif.com-video-to-gif.gif)
+![Preview](./src/assets/detail.gif)
+![Preview](./src/assets/direction.gif)
 
 In Singn in and Sign Up i used components own state combining Redux state.Although there is awesome validation provided by  firebase, i used my own custom validation rules. 
 
