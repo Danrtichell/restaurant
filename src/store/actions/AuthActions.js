@@ -67,7 +67,7 @@ export const _fbAuth = () => {
 export const _googleAuth = () => {
     return (dispatch) => {
         GoogleSignin.configure({
-            webClientId: '693614564118-ej8ukdngmkgvodgmalsa7ik2kj8hq1ho.apps.googleusercontent.com',
+            webClientId: 'your web client id',
             offlineAccess: false
         })
         .then(() => {
@@ -126,7 +126,7 @@ export const getUsersLocation = () => {
                         country_code : responseJson.country_code,
                         cityName: responseJson.city
                     };
-                    let url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + focusedLocation.latitude + ',' + focusedLocation.longitude + '&radius=500&type=restaurant&key=AIzaSyAwUyFikvyvgzx2Wp2bVc3Vt_hNm4AIggM';
+                    let url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + focusedLocation.latitude + ',' + focusedLocation.longitude + '&radius=500&type=restaurant&key=API_KEY';
                     fetch(url)
                         .then(response => {
                             if (response) {
