@@ -10,10 +10,9 @@ Download the APK : [Installable APK](https://github.com/ishraqe/restaurant/raw/m
 ## Built With
  - [React Native](https://facebook.github.io/react-native/)
  - [Redux](https://github.com/reactjs/redux)
- - [Firebase](https://firebase.google.com/)
 
-This is my very first application built with react native. I built this application in hope of learning. It was a rollercoster ride all along. 
-For database i used Firebase. 
+
+This is my second application built with react native. I built this to check out social authentication and google map's. For this app stores so little data so i used  [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html). 
 
 I would really appricate any suggestions, feedback, PRs and Issues.
 
@@ -23,40 +22,30 @@ I would really appricate any suggestions, feedback, PRs and Issues.
 ![Preview](./src/assets/detail.gif)
 ![Preview](./src/assets/direction.gif)
 
-In Singn in and Sign Up i used components own state combining Redux state.Although there is awesome validation provided by  firebase, i used my own custom validation rules. 
-
+In Singn in and Sign Up i [React native Facebook Sdk](https://github.com/facebook/react-native-fbsdk) and [React native Google SignIn](https://github.com/devfd/react-native-google-signin)  combining with Redux state control. 
 
 Upon successful sign in or sign up, the user will be directed to the timeline page. These page are created using the [React native router flux](https://github.com/aksonov/react-native-router-flux). 
-Chossing [React native router flux](https://github.com/aksonov/react-native-router-flux) was a tricky decision. I was following some tutorials where they used [React native navigation](https://github.com/wix/react-native-navigation) by wix. Due to some unexpected circumstances i had to move to [React native router flux](https://github.com/aksonov/react-native-router-flux).
-I will try to use Navigation provided by React native official in near future for exploring more. 
+Chossing [React native router flux](https://github.com/aksonov/react-native-router-flux) was a tricky decision. 
 
-The Home View is consists of three tabs -
+The Home View is consists of Four tabs -
 
- - Timeline
- - Create new blog
- - Notifications (which is under developed)
-
-These are swipeable tabs that are created by using the library [React native router flux](https://github.com/aksonov/react-native-router-flux). 
-The top navigation bar comes also with it. There is also a drawer or side bar present there.  It consists of
-
-- Home
-- Profile
-- Settings
-
-The "Timeline" component is a basically [Flat list](https://facebook.github.io/react-native/docs/flatlist.html).  All the data are coming from  firebase NoSQL database. 
-The next "Create New blog" component is used for creating a new post to the timeline. 
-
-The sidebar component's home redirects to timeline. Where profile displays only users post.
-In settings user can change name, email, password and profile picture. 
-
-### Future Development: 
- - Blog Actions (Like, comments )
- - Notifications 
+ - Home
  - Search
- - [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html) for storing user information and getting logged in. 
- - [Animation](https://facebook.github.io/react-native/docs/animated.html) 
+ - Map 
+ - Bookmark 
  
-Being a fresher in this platform adapting animations was quite hard. I hope to master the [Animated API](https://facebook.github.io/react-native/docs/animated.html) and implement it in this project. I have plan adding those while component mount and unmount , scroll, press. Basically on every users action to make it more interactive.  
+These are swipeable tabs that are created by using the library [React native router flux](https://github.com/aksonov/react-native-router-flux). 
+
+The top navigation bar comes also with it. There is also a drawer or side bar present there.  It consists of users name, image , location and Log out button. 
+
+
+The "Home" component is a basically [Flat list](https://facebook.github.io/react-native/docs/flatlist.html).  All the data are coming from [Google Places API](https://developers.google.com/places/). 
+
+The next "Map" component built with [React Native Maps](https://github.com/react-community/react-native-maps).
+
+In and unfortunate event i didn't found any restaurants image, menu and menu image. So i used some dummy contents for them. 
+
+ 
 
 ### Debugging & crash-reporting:
 
@@ -73,34 +62,37 @@ To create an own copy of this application, you have some prerequisites. They are
  - [React Native](https://facebook.github.io/react-native/) installed on your system.
  - Have the [Android SDK](https://developer.android.com/studio/index.html) and paths set properly. 
  - An android emulator or real device to run the app.
- - A google account for having [Firebase Web](https://firebase.google.com/docs/web/setup) configuration.
+
 
 ### Make own copy
 First clone the repository using:
 
-    git clone https://github.com/ishraqe/react-native-blog.git
+    git clone https://github.com/ishraqe/restaurant.git
 
 Then install the dependencies using:
 
     npm install
 
-At this point you need to have the configurations for a Firebase App. Just go to [Firebase Console](https://firebase.google.com/docs/web/setup) and follow the instructions. Then open the file named `App.js` from the `src` folder. Add the Firebase configurations to the file. The file looks something like this:
-
-    // import and configure firebase
-    import  firebase from 'firebase';
+Now there is some tricky business to handle. There will be some bugs i have found that comes with libraries. 
+    For errors like 
     
-    const firebaseConfig = {
-      apiKey: [YOUR API KEY],
-      authDomain: [YOUR AUTH DOMAIN],
-      databaseURL: [YOUR DATABASE URL],
-      storageBucket: [STORAGE BUCKET],
-    }
-    export const firebaseApp = firebase.initializeApp(firebaseConfig)
+    
+    @Override method .....
+ Go to the node 
+ 
+    /node_modules/react-native-google-        signin/android/src/main/java/co/apptailor/googlesignin/RNGoogleSigninPackage.java  
+And comment out or delete the @Override method in    
+     
+     createJSModules().    
 
- Run the following command to run the app on the emulator.
+
 
     react-native run-android
 Now, you have your own copy of this application!
+
+If you get error like Metro blunder ...... try this command 
+
+    rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json
 
 
 ## License
@@ -112,20 +104,21 @@ For a noob like me creating an application of this stature woudn't have been pos
 
  - [React](https://facebook.github.io/react/)
  - [React Native](https://facebook.github.io/react-native/)
+ - [React native FbSdk](https://github.com/facebook/react-native-fbsdk)
+ - [React native google sign in](https://github.com/devfd/react-native-google-signin)
  - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
  - [Redux](https://github.com/reactjs/redux)
  - [React Redux](https://github.com/reactjs/react-redux)
  - [Redux thunk](https://github.com/gaearon/redux-thunk)
- - [Firebase](https://firebase.google.com/)
- - [Moment JS](http://momentjs.com/)
- - [Lodash](https://lodash.com/)
- - [React native fetch blob](https://github.com/wkh237/react-native-fetch-blob)
- - [React native image picker](https://github.com/react-community/react-native-image-picker)
  - [React native linear gradient](https://github.com/react-native-community/react-native-linear-gradient) 
- - [React native progress](https://github.com/oblador/react-native-progress)
  - [React native router flux](https://github.com/aksonov/react-native-router-flux)
- - [React native shimmer](https://github.com/oblador/react-native-shimmer)
- - [React native splash screen](https://github.com/crazycodeboy/react-native-splash-screen)
+ - [React native video](https://github.com/react-native-community/react-native-video)
+ - [React native svg ](https://github.com/react-native-community/react-native-svg)
+ - [React native snap carousel](https://github.com/archriss/react-native-snap-carousel)
+ - [React native scrollable tab view](https://github.com/skv-headless/react-native-scrollable-tab-view) 
+ - [React native maps](https://github.com/react-community/react-native-maps)
+ - [React native google places ](https://github.com/tolu360/react-native-google-places)
+ - [React native communications ](https://github.com/anarchicknight/react-native-communications)
 
 Made with ♥ by [Ishraqe Manjur](https://twitter.com/ishraqe_manjur)
 
