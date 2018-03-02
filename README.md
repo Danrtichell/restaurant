@@ -80,7 +80,8 @@ Now there is some tricky business to handle. There will be some bugs i have foun
     @Override method .....
  Go to the node 
  
-    /node_modules/react-native-google-        signin/android/src/main/java/co/apptailor/googlesignin/RNGoogleSigninPackage.java  
+    /node_modules/react-native-google-signin/android/src/main/java/co/apptailor/googlesignin/RNGoogleSigninPackage.java  
+
 And comment out or delete the @Override method in    
      
      createJSModules().    
