@@ -14,7 +14,7 @@ export const getRestaurantDetails = ({ place_id}) => {
     console.log('inside', place_id);
 
     return (dispatch) => {
-        let url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='+place_id+'&key=AIzaSyAwUyFikvyvgzx2Wp2bVc3Vt_hNm4AIggM';
+        let url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='+place_id+'&key=API_KEY';
         fetch(url)
         .then(response => {
             if (response) {
